@@ -2,11 +2,13 @@ package controllers
 
 import (
 	"net/http"
+
+	controllers "github.com/coolbambook/controllers1"
 )
 
 type Users struct {
 	Templates struct {
-		New Template
+		New controllers.Template
 	}
 }
 

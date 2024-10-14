@@ -2,24 +2,26 @@ package controllers
 
 import (
 	"net/http"
+
+	controllers "github.com/coolbambook/controllers1"
 )
 
 type Static struct {
-	Template Template
+	Template controllers.Template
 }
 
 func (static Static) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	static.Template.Execute(w, nil)
 }
 
-func StaticHandler(tpl Template) http.HandlerFunc {
+func StaticHandler(tpl controllers.Template) http.HandlerFunc {
 
 	return func(w http.ResponseWriter, r *http.Request) {
 		tpl.Execute(w, nil)
 	}
 }
 
-func FAQ(tpl Template) http.HandlerFunc {
+func FAQ(tpl controllers.Template) http.HandlerFunc {
 	questions := []struct {
 		Question string
 		Answer   string
